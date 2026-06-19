@@ -16,4 +16,11 @@
 
     <string name="validation_empty_message">Digite uma mensagem antes de enviar.</string>
     <string name="temporary_selected_message">Tipo selecionado: %1$s | Mensagem: %2$s</string>
+
+    <string name="answer_title">Resposta do Robô</string>
+    <string name="answer_robot_type">Tipo do robô: %1$s</string>
+    <string name="answer_user_message">Mensagem enviada: %1$s</string>
+    <string name="answer_label_robot_response">Resposta</string>
+    <string name="answer_temporary_response">Resposta temporária do Robô Marciano. Em breve esta tela usará a regra de negócio real.</string>
+    <string name="button_back">Voltar</string>
 </resources>

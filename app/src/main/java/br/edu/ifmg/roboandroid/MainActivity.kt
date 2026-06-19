@@ -1,5 +1,6 @@
 package br.edu.ifmg.roboandroid
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -28,6 +29,11 @@ class MainActivity : AppCompatActivity() {
         configurarBotaoEnviar()
     }
 
+    override fun onResume() {
+        super.onResume()
+        limparCampoMensagem()
+    }
+
     private fun configurarSpinnerTipoRobo() {
         val adapter = ArrayAdapter(
             this,
@@ -53,11 +59,20 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            Toast.makeText(
-                this,
-                getString(R.string.temporary_selected_message, tipoRoboSelecionado, mensagem),
-                Toast.LENGTH_LONG
-            ).show()
+            abrirTelaResposta(tipoRoboSelecionado, mensagem)
         }
+    }
+
+    private fun abrirTelaResposta(tipoRobo: String, mensagem: String) {
+        val intent = Intent(this, AnswerActivity::class.java).apply {
+            putExtra(AnswerActivity.EXTRA_TIPO_ROBO, tipoRobo)
+            putExtra(AnswerActivity.EXTRA_MENSAGEM, mensagem)
+        }
+
+        startActivity(intent)
+    }
+
+    private fun limparCampoMensagem() {
+        binding.editMensagem.text?.clear()
     }
 }

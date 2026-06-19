@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Robo Marciano Android</string>
+    <string name="app_name">Robô Marciano Android</string>
+
+    <string name="main_title">Robô Marciano</string>
+    <string name="main_subtitle">Envie uma mensagem e converse com o robô</string>
+    <string name="main_robot_image_description">Imagem representando o Robô Marciano</string>
+
+    <string name="label_robot_type">Tipo do robô</string>
+    <string name="label_message">Mensagem</string>
+    <string name="hint_message">Digite sua mensagem para o robô</string>
+    <string name="button_send_message">Enviar mensagem</string>
 </resources>

@@ -9,4 +9,11 @@
     <string name="label_message">Mensagem</string>
     <string name="hint_message">Digite sua mensagem para o robô</string>
     <string name="button_send_message">Enviar mensagem</string>
+
+    <string name="robot_type_basic">Robô Básico</string>
+    <string name="robot_type_advanced">Robô Avançado</string>
+    <string name="robot_type_premium">Robô Premium</string>
+
+    <string name="validation_empty_message">Digite uma mensagem antes de enviar.</string>
+    <string name="temporary_selected_message">Tipo selecionado: %1$s | Mensagem: %2$s</string>
 </resources>

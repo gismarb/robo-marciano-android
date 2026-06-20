@@ -1,0 +1,84 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="160dp"
+    android:height="160dp"
+    android:viewportWidth="160"
+    android:viewportHeight="160">
+
+    <!-- Antena -->
+    <path
+        android:fillColor="@color/robot_primary_dark"
+        android:pathData="M78,18h4v18h-4z" />
+
+    <path
+        android:fillColor="@color/robot_accent"
+        android:pathData="M80,10m-8,0a8,8 0,1 0,16 0a8,8 0,1 0,-16 0" />
+
+    <!-- Orelhas laterais -->
+    <path
+        android:fillColor="@color/robot_gray_medium"
+        android:pathData="M30,62h12v36h-12z" />
+
+    <path
+        android:fillColor="@color/robot_gray_medium"
+        android:pathData="M118,62h12v36h-12z" />
+
+    <!-- Cabeça -->
+    <path
+        android:fillColor="@color/robot_gray_light"
+        android:pathData="M42,36h76a12,12 0,0 1,12 12v54a12,12 0,0 1,-12 12h-76a12,12 0,0 1,-12 -12v-54a12,12 0,0 1,12 -12z" />
+
+    <!-- Contorno interno da cabeça -->
+    <path
+        android:strokeColor="@color/robot_primary_dark"
+        android:strokeWidth="4"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M42,36h76a12,12 0,0 1,12 12v54a12,12 0,0 1,-12 12h-76a12,12 0,0 1,-12 -12v-54a12,12 0,0 1,12 -12z" />
+
+    <!-- Olhos -->
+    <path
+        android:fillColor="@color/robot_primary"
+        android:pathData="M60,70m-9,0a9,9 0,1 0,18 0a9,9 0,1 0,-18 0" />
+
+    <path
+        android:fillColor="@color/robot_primary"
+        android:pathData="M100,70m-9,0a9,9 0,1 0,18 0a9,9 0,1 0,-18 0" />
+
+    <!-- Brilho dos olhos -->
+    <path
+        android:fillColor="@color/white"
+        android:pathData="M57,66m-3,0a3,3 0,1 0,6 0a3,3 0,1 0,-6 0" />
+
+    <path
+        android:fillColor="@color/white"
+        android:pathData="M97,66m-3,0a3,3 0,1 0,6 0a3,3 0,1 0,-6 0" />
+
+    <!-- Boca -->
+    <path
+        android:fillColor="@color/robot_primary_dark"
+        android:pathData="M62,91h36a4,4 0,0 1,4 4v4a4,4 0,0 1,-4 4h-36a4,4 0,0 1,-4 -4v-4a4,4 0,0 1,4 -4z" />
+
+    <path
+        android:fillColor="@color/robot_accent"
+        android:pathData="M68,94h4v6h-4zM78,94h4v6h-4zM88,94h4v6h-4z" />
+
+    <!-- Corpo -->
+    <path
+        android:fillColor="@color/robot_primary"
+        android:pathData="M55,118h50a8,8 0,0 1,8 8v18h-66v-18a8,8 0,0 1,8 -8z" />
+
+    <!-- Detalhe do corpo -->
+    <path
+        android:fillColor="@color/robot_accent"
+        android:pathData="M73,128h14a4,4 0,0 1,4 4v4a4,4 0,0 1,-4 4h-14a4,4 0,0 1,-4 -4v-4a4,4 0,0 1,4 -4z" />
+
+    <!-- Braços -->
+    <path
+        android:fillColor="@color/robot_primary_dark"
+        android:pathData="M38,124h12v8h-12zM110,124h12v8h-12z" />
+
+    <!-- Pernas -->
+    <path
+        android:fillColor="@color/robot_primary_dark"
+        android:pathData="M63,144h10v10h-10zM87,144h10v10h-10z" />
+
+</vector>

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="robot_primary">#2D6CDF</color>
+    <color name="robot_primary_dark">#1B2A41</color>
+    <color name="robot_background">#F4F7FB</color>
+    <color name="robot_surface">#FFFFFF</color>
+    <color name="robot_text_secondary">#5C677D</color>
+    <color name="robot_gray_light">#D9E2EC</color>
+    <color name="robot_gray_medium">#8D99AE</color>
+    <color name="robot_accent">#4ECDC4</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

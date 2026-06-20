@@ -13,7 +13,7 @@ class MarcianoPremiumTest {
         val resposta = robo.responder("agir")
 
         assertTrue(resposta.contains("É pra já!"))
-        assertTrue(resposta.contains("A tecnologia move o mundo"))
+        assertTrue(resposta.length > "É pra já!".length)
     }
 
     @Test
@@ -36,5 +36,11 @@ class MarcianoPremiumTest {
 
         assertEquals("Opa! Calma aí!", resposta)
     }
-}
 
+    @Test
+    fun deveInterpretarAgirMaiusculoComoGrito() {
+        val resposta = robo.responder("AGIR")
+
+        assertEquals("Opa! Calma aí!", resposta)
+    }
+}

@@ -25,7 +25,11 @@ class AnswerActivity : AppCompatActivity() {
             R.string.answer_robot_type,
             obterNomeTipoRobo(tipoRobo)
         )
-        binding.txtMensagemUsuario.text = getString(R.string.answer_user_message, mensagem)
+
+        binding.txtMensagemUsuario.text = mensagem.ifBlank {
+            getString(R.string.empty_message_display)
+        }
+
         binding.txtRespostaRobo.text = resposta
 
         binding.btnVoltar.setOnClickListener {

@@ -19,6 +19,11 @@
     <string name="answer_title">Resposta do Robô</string>
     <string name="answer_robot_type">Tipo do robô: %1$s</string>
     <string name="answer_user_message">Mensagem enviada: %1$s</string>
-    <string name="answer_label_robot_response">Resposta</string>
+    <string name="answer_label_robot_response">Resposta do robô</string>
     <string name="button_back">Voltar</string>
+
+    <string name="answer_intro">O Robô Marciano analisou sua mensagem e respondeu:</string>
+    <string name="answer_user_message_label">Sua mensagem</string>
+    <string name="answer_robot_message_label">Resposta do robô</string>
+    <string name="empty_message_display">Mensagem vazia</string>
 </resources>

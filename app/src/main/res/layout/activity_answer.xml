@@ -38,6 +38,16 @@
             android:src="@drawable/ic_robo_marciano" />
 
         <TextView
+            android:id="@+id/txtIntroducaoResposta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:gravity="center"
+            android:text="@string/answer_intro"
+            android:textColor="@color/robot_text_secondary"
+            android:textSize="15sp" />
+
+        <TextView
             android:id="@+id/txtTipoRoboResposta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,10 +57,23 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/txtLabelMensagemUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/answer_user_message_label"
+            android:textColor="@color/robot_primary_dark"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/txtMensagemUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_response_card"
+            android:minHeight="72dp"
+            android:padding="16dp"
             android:textColor="@color/robot_text_secondary"
             android:textSize="16sp" />
 
@@ -58,8 +81,8 @@
             android:id="@+id/txtLabelResposta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="@string/answer_label_robot_response"
+            android:layout_marginTop="22dp"
+            android:text="@string/answer_robot_message_label"
             android:textColor="@color/robot_primary_dark"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -71,7 +94,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/bg_response_card"
             android:elevation="2dp"
-            android:minHeight="120dp"
+            android:minHeight="110dp"
             android:padding="16dp"
             android:textColor="@color/robot_primary_dark"
             android:textSize="17sp" />

@@ -3,7 +3,7 @@
     android:id="@+id/scrollTelaResposta"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F7FB"
+    android:background="@color/robot_background"
     android:fillViewport="true">
 
     <LinearLayout
@@ -21,7 +21,7 @@
             android:layout_marginTop="32dp"
             android:gravity="center"
             android:text="@string/answer_title"
-            android:textColor="#1B2A41"
+            android:textColor="@color/robot_primary_dark"
             android:textSize="26sp"
             android:textStyle="bold" />
 
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:textColor="#1B2A41"
+            android:textColor="@color/robot_primary_dark"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:textColor="#5C677D"
+            android:textColor="@color/robot_text_secondary"
             android:textSize="16sp" />
 
         <TextView
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:text="@string/answer_label_robot_response"
-            android:textColor="#1B2A41"
+            android:textColor="@color/robot_primary_dark"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -65,11 +65,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="#FFFFFF"
+            android:background="@color/robot_surface"
             android:elevation="2dp"
             android:minHeight="120dp"
             android:padding="16dp"
-            android:textColor="#1B2A41"
+            android:textColor="@color/robot_primary_dark"
             android:textSize="17sp" />
 
         <Button

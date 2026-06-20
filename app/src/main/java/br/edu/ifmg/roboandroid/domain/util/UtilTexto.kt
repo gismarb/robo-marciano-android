@@ -13,13 +13,13 @@ object UtilTexto {
             return false
         }
 
-        val letras = texto.filter { it.isLetter() }
+        val palavras = texto.split(Regex("\\s+"))
 
-        if (letras.isBlank()) {
-            return false
+        return palavras.any { palavra ->
+            val letras = palavra.filter { it.isLetter() }
+
+            letras.length >= 2 && letras.all { it.isUpperCase() }
         }
-
-        return letras.all { it.isUpperCase() }
     }
 
     fun contemPalavraEu(mensagem: String): Boolean {
@@ -27,4 +27,3 @@ object UtilTexto {
         return regex.containsMatchIn(mensagem)
     }
 }
-

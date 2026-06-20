@@ -4,13 +4,13 @@
 
   <!-- robo-marciano-android_01.png -->
   <figure style="display: inline-block; margin: 0 15px; text-align: center;">
-    <img src="img/robo-marciano-android_01.png" width="300" style="border: 3px solid #ccc; border-radius: 8px;" alt="Tela principal Robô Marciano Android">
+    <img src="img/robo-marciano-android_01.png" width="220" style="border: 3px solid #ccc; border-radius: 8px;" alt="Tela principal Robô Marciano Android">
     <figcaption style="margin-top: 8px; font-size: 14px; color: #555;">Tela principal Robô Marciano Android</figcaption>
   </figure>
 
   <!-- robo-marciano-android_02.png -->
   <figure style="display: inline-block; margin: 0 15px; text-align: center;">
-    <img src="img/robo-marciano-android_02.png" width="300" style="border: 3px solid #ccc; border-radius: 8px;" alt="Tela de respostas Robô Marciano Android">
+    <img src="img/robo-marciano-android_02.png" width="220" style="border: 3px solid #ccc; border-radius: 8px;" alt="Tela de respostas Robô Marciano Android">
     <figcaption style="margin-top: 8px; font-size: 14px; color: #555;">Tela de respostas Robô Marciano Android</figcaption>
   </figure>
 

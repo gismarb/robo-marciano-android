@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         limparCampoMensagem()
+        voltarScrollParaTopo()
     }
 
     private fun configurarSpinnerTipoRobo() {
@@ -72,5 +73,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun limparCampoMensagem() {
         binding.editMensagem.text?.clear()
+    }
+
+    private fun voltarScrollParaTopo() {
+        binding.scrollTelaPrincipal.post {
+            binding.scrollTelaPrincipal.scrollTo(0, 0)
+        }
     }
 }

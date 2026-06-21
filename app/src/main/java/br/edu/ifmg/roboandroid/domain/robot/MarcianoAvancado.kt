@@ -29,14 +29,14 @@ open class MarcianoAvancado : Marciano() {
             "multiplique" -> primeiroNumero * segundoNumero
             "divida" -> {
                 if (segundoNumero == 0.0) {
-                    return "Erro: não é possível dividir por zero"
+                    return RoboRespostas.ERRO_DIVISAO_POR_ZERO
                 }
                 primeiroNumero / segundoNumero
             }
             else -> return null
         }
 
-        return "Essa eu sei: ${formatarResultado(resultado)}"
+        return "${RoboRespostas.PREFIXO_RESULTADO_OPERACAO} ${formatarResultado(resultado)}"
     }
 
     private fun formatarResultado(valor: Double): String {

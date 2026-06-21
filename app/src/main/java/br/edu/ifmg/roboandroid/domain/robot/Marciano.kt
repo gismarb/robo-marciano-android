@@ -8,12 +8,13 @@ open class Marciano {
         val texto = mensagem.trim()
 
         return when {
-            texto.isBlank() -> "Não me incomode"
-            UtilTexto.ehPergunta(texto) && UtilTexto.ehGrito(texto) -> "Relaxa, eu sei o que estou fazendo!"
-            UtilTexto.ehGrito(texto) -> "Opa! Calma aí!"
-            UtilTexto.ehPergunta(texto) -> "Certamente"
-            UtilTexto.contemPalavraEu(texto) -> "A responsabilidade é sua"
-            else -> "Tudo bem, como quiser"
+            texto.isBlank() -> RoboRespostas.NAO_ME_INCOMODE
+            UtilTexto.ehPergunta(texto) && UtilTexto.ehGrito(texto) ->
+                RoboRespostas.RELAXA_EU_SEI_O_QUE_ESTOU_FAZENDO
+            UtilTexto.ehGrito(texto) -> RoboRespostas.OPA_CALMA_AI
+            UtilTexto.ehPergunta(texto) -> RoboRespostas.CERTAMENTE
+            UtilTexto.contemPalavraEu(texto) -> RoboRespostas.RESPONSABILIDADE_SUA
+            else -> RoboRespostas.TUDO_BEM_COMO_QUISER
         }
     }
 }

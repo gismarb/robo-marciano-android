@@ -1,69 +1,55 @@
 # Manual de Execução — Robô Marciano Android
 
-Data: 20/06/2026
+## 1. Objetivo
 
----
+Este documento descreve como abrir, compilar, testar e executar o projeto **Robô Marciano Android**.
 
-## 1. Objetivo do documento
-
-Este manual descreve como abrir, compilar, testar e executar o projeto **Robô Marciano Android** no Android Studio.
+O projeto é uma adaptação mobile do [Robô Marciano Kotlin](https://github.com/gismarb/robo-marciano-kotlin), originalmente desenvolvido para execução em terminal.
 
 ---
 
 ## 2. Pré-requisitos
 
-Para executar o projeto, recomenda-se ter:
+Para executar o projeto, é necessário possuir:
 
 - Android Studio instalado;
-- JDK configurado pelo próprio Android Studio;
-- Gradle Wrapper do projeto;
-- Android SDK instalado;
-- emulador Android configurado ou dispositivo físico conectado;
-- Git instalado.
+- Android SDK configurado;
+- JDK utilizado pelo Android Studio;
+- emulador Android configurado ou dispositivo físico;
+- Git instalado;
+- acesso ao terminal.
 
 ---
 
-## 3. Estrutura esperada do projeto
+## 3. Clonando o repositório
 
-A raiz do projeto deve conter arquivos como:
+Para obter o projeto, execute:
 
-```text
-app/
-gradle/
-build.gradle.kts
-settings.gradle.kts
-gradlew
-gradlew.bat
-README.md
-docs/
+```bash
+git clone https://github.com/gismarb/robo-marciano-android.git
 ```
 
-A pasta principal do app é:
+Entre na pasta do projeto:
 
-```text
-app/
+```bash
+cd robo-marciano-android
 ```
 
 ---
 
-## 4. Abrir o projeto no Android Studio
+## 4. Abrindo no Android Studio
 
-1. Abrir o Android Studio.
-2. Selecionar **Open**.
-3. Escolher a pasta raiz do projeto:
-
-```text
-robo-marciano-android
-```
-
-4. Aguardar o **Gradle Sync**.
-5. Verificar se o módulo `app` foi carregado corretamente.
+1. Abra o Android Studio.
+2. Selecione **Open**.
+3. Escolha a pasta `robo-marciano-android`.
+4. Aguarde o **Gradle Sync**.
+5. Confirme se o módulo `app` foi carregado corretamente.
 
 ---
 
-## 5. Compilar o projeto
+## 5. Compilando pelo terminal
 
-No terminal, dentro da raiz do projeto, executar:
+Na raiz do projeto, execute:
 
 ```bash
 ./gradlew build
@@ -77,9 +63,9 @@ BUILD SUCCESSFUL
 
 ---
 
-## 6. Executar testes unitários
+## 6. Executando os testes
 
-Para executar os testes da regra de negócio:
+Para executar os testes unitários:
 
 ```bash
 ./gradlew test
@@ -91,7 +77,7 @@ Resultado esperado:
 BUILD SUCCESSFUL
 ```
 
-Os testes estão localizados em:
+Os testes ficam em:
 
 ```text
 app/src/test/java/br/edu/ifmg/roboandroid/domain/robot
@@ -107,34 +93,90 @@ MarcianoPremiumTest.kt
 
 ---
 
-## 7. Executar o app no emulador
+## 7. Executando o app no emulador
 
-1. Abrir o Android Studio.
-2. Selecionar um emulador Android.
-3. Clicar em **Run**.
-4. Aguardar a instalação do app.
-5. Verificar a abertura da tela principal.
-
----
-
-## 8. Executar o app em dispositivo físico
-
-1. Ativar o modo desenvolvedor no dispositivo Android.
-2. Ativar a depuração USB.
-3. Conectar o dispositivo ao computador.
-4. Autorizar a depuração USB no aparelho.
-5. Selecionar o dispositivo no Android Studio.
-6. Clicar em **Run**.
+1. Abra o Android Studio.
+2. Selecione um emulador Android.
+3. Clique em **Run**.
+4. Aguarde a instalação do app.
+5. Verifique se a tela principal foi aberta.
 
 ---
 
-## 9. Fluxo básico de uso
+## 8. Executando o app em dispositivo físico
 
-### 9.1 Tela principal
+1. Ative o modo desenvolvedor no Android.
+2. Ative a depuração USB.
+3. Conecte o dispositivo ao computador.
+4. Autorize a depuração USB no aparelho.
+5. Selecione o dispositivo no Android Studio.
+6. Clique em **Run**.
 
-Na tela principal:
+---
 
-1. escolher o tipo do robô;
+## 9. Estrutura do projeto
+
+### 9.1 Código principal
+
+```text
+app/src/main/java/br/edu/ifmg/roboandroid
+├── MainActivity.kt
+├── AnswerActivity.kt
+└── domain
+```
+
+### 9.2 Regra de negócio
+
+```text
+domain
+├── model
+│   └── TipoRobo.kt
+├── robot
+│   ├── Marciano.kt
+│   ├── MarcianoAvancado.kt
+│   ├── MarcianoPremium.kt
+│   ├── RoboFactory.kt
+│   └── RoboRespostas.kt
+└── util
+    └── UtilTexto.kt
+```
+
+### 9.3 Layouts
+
+```text
+app/src/main/res/layout
+├── activity_main.xml
+└── activity_answer.xml
+```
+
+### 9.4 Recursos visuais
+
+```text
+app/src/main/res/drawable
+├── bg_button_primary.xml
+├── bg_input_message.xml
+├── bg_response_card.xml
+└── ic_robo_marciano.xml
+```
+
+### 9.5 Recursos de texto e cor
+
+```text
+app/src/main/res/values
+├── colors.xml
+├── strings.xml
+└── themes.xml
+```
+
+---
+
+## 10. Fluxo de uso
+
+### 10.1 Tela principal
+
+Na tela principal, o usuário deve:
+
+1. selecionar o tipo de robô;
 2. digitar uma mensagem;
 3. clicar em **Enviar mensagem**.
 
@@ -146,28 +188,34 @@ Robô Avançado
 Robô Premium
 ```
 
-### 9.2 Tela de resposta
+### 10.2 Tela de resposta
 
-Na tela de resposta, o app mostra:
+Na tela de resposta, o aplicativo apresenta:
 
-- tipo do robô selecionado;
+- tipo de robô selecionado;
 - mensagem enviada;
 - resposta do robô;
-- botão **Voltar**.
+- botão para voltar.
 
-### 9.3 Retorno
+### 10.3 Nova interação
 
-Ao clicar em **Voltar** ou usar o botão voltar do Android:
+Ao voltar para a tela principal:
 
-- o app retorna para a tela principal;
 - o campo de mensagem é limpo;
-- o scroll volta para o topo.
+- o scroll retorna ao topo;
+- o usuário pode enviar nova mensagem.
 
 ---
 
-## 10. Comandos aceitos
+## 11. Exemplos de uso
 
-### 10.1 Robô Básico
+### 11.1 Robô Básico
+
+Selecione:
+
+```text
+Robô Básico
+```
 
 Exemplos:
 
@@ -179,7 +227,13 @@ EU quero testar?
 Olá robô
 ```
 
-### 10.2 Robô Avançado
+### 11.2 Robô Avançado
+
+Selecione:
+
+```text
+Robô Avançado
+```
 
 Exemplos:
 
@@ -189,9 +243,16 @@ subtraia 10 4
 multiplique 3 5
 divida 10 2
 divida 10 0
+some 2,5 3,5
 ```
 
-### 10.3 Robô Premium
+### 11.3 Robô Premium
+
+Selecione:
+
+```text
+Robô Premium
+```
 
 Exemplo:
 
@@ -199,52 +260,17 @@ Exemplo:
 agir
 ```
 
-O comando retorna:
+Resultado esperado:
 
 ```text
 É pra já!
-```
 
-seguido de uma frase aleatória sobre tecnologia.
-
----
-
-## 11. Principais arquivos
-
-### 11.1 Interface
-
-```text
-MainActivity.kt
-AnswerActivity.kt
-activity_main.xml
-activity_answer.xml
-```
-
-### 11.2 Regra de negócio
-
-```text
-TipoRobo.kt
-Marciano.kt
-MarcianoAvancado.kt
-MarcianoPremium.kt
-RoboFactory.kt
-UtilTexto.kt
-```
-
-### 11.3 Recursos visuais
-
-```text
-colors.xml
-strings.xml
-ic_robo_marciano.xml
-bg_button_primary.xml
-bg_input_message.xml
-bg_response_card.xml
+[frase aleatória sobre tecnologia]
 ```
 
 ---
 
-## 12. Comandos úteis do Git
+## 12. Comandos Git utilizados no fluxo do projeto
 
 Verificar status:
 
@@ -264,6 +290,12 @@ Criar commit:
 git commit -m "mensagem do commit"
 ```
 
+Enviar para o GitHub:
+
+```bash
+git push
+```
+
 Ver histórico:
 
 ```bash
@@ -272,31 +304,52 @@ git log --oneline
 
 ---
 
-## 13. Problemas comuns
+## 13. Observações técnicas
 
-### 13.1 Erro de SDK
+### 13.1 Uso de duas Activities
 
-Caso ocorra erro relacionado ao `compileSdk`, verificar o arquivo:
+O app utiliza:
+
+- `MainActivity`, para entrada de dados;
+- `AnswerActivity`, para exibição da resposta.
+
+### 13.2 ViewBinding
+
+O ViewBinding foi habilitado para evitar acesso manual aos componentes por `findViewById`.
+
+### 13.3 Regra de negócio separada
+
+As regras do robô estão no pacote `domain`, e não dentro das Activities.
+
+### 13.4 Mensagem vazia
+
+A mensagem vazia não é bloqueada por `Toast`. Ela é enviada para a regra de negócio e o robô responde:
+
+```text
+Não me incomode
+```
+
+### 13.5 Imagem do robô
+
+A imagem do robô foi criada como `Vector Drawable`, substituindo a ideia do robô em ASCII do projeto Kotlin original.
+
+---
+
+## 14. Problemas comuns
+
+### 14.1 Erro de SDK
+
+Se ocorrer erro relacionado ao SDK, verifique o arquivo:
 
 ```text
 app/build.gradle.kts
 ```
 
-E conferir se o SDK correspondente está instalado no Android Studio.
+E confira se o SDK indicado está instalado no Android Studio.
 
-### 13.2 App fecha ao abrir
+### 14.2 Binding não encontrado
 
-Verificar o **Logcat** no Android Studio e procurar por:
-
-```text
-FATAL EXCEPTION
-```
-
-No projeto, um erro possível durante o desenvolvimento foi o uso incorreto de `backgroundTint` junto com `background` customizado.
-
-### 13.3 Binding não encontrado
-
-Caso a IDE mostre erro em classes como `ActivityAnswerBinding`, tentar:
+Se a IDE indicar erro em classes como `ActivityMainBinding` ou `ActivityAnswerBinding`, execute:
 
 ```text
 File > Sync Project with Gradle Files
@@ -304,14 +357,26 @@ Build > Clean Project
 Build > Rebuild Project
 ```
 
+### 14.3 App fecha ao abrir
+
+Abra o **Logcat** e procure por:
+
+```text
+FATAL EXCEPTION
+```
+
+Durante o desenvolvimento, um erro possível foi manter `backgroundTint` junto com `background` customizado em componentes de layout.
+
 ---
 
-## 14. Resultado esperado
+## 15. Critério de execução correta
 
-Ao final da execução, o app deve permitir:
+O projeto está funcionando corretamente quando:
 
-- selecionar um tipo de robô;
-- enviar mensagens;
-- visualizar respostas corretas;
-- retornar para nova interação;
-- manter a regra de negócio original adaptada ao Android.
+- `./gradlew test` passa;
+- `./gradlew build` passa;
+- o app abre no emulador ou dispositivo;
+- a tela principal permite envio de mensagens;
+- a tela de resposta exibe o retorno correto;
+- o botão voltar retorna para a tela principal;
+- o campo de mensagem fica limpo ao retornar.

@@ -1,26 +1,36 @@
 # Roteiro de Testes — Robô Marciano Android
 
-Data: 20/06/2026
-
----
-
 ## 1. Objetivo
 
-Este roteiro descreve os testes manuais e automatizados para validar o funcionamento do app **Robô Marciano Android**.
+Este documento apresenta o roteiro de testes do aplicativo **Robô Marciano Android**.
+
+Os testes validam:
+
+- abertura do app;
+- navegação entre telas;
+- seleção do tipo de robô;
+- regras do Robô Básico;
+- regras do Robô Avançado;
+- regras do Robô Premium;
+- retorno para nova interação;
+- identidade visual;
+- testes automatizados.
 
 ---
 
 ## 2. Testes automatizados
 
-### 2.1 Executar todos os testes unitários
+### Teste 01 — Executar testes unitários
 
-Comando:
+**Objetivo:** validar as regras de negócio por meio dos testes automatizados.
+
+**Comando:**
 
 ```bash
 ./gradlew test
 ```
 
-Resultado esperado:
+**Resultado esperado:**
 
 ```text
 BUILD SUCCESSFUL
@@ -28,26 +38,46 @@ BUILD SUCCESSFUL
 
 ---
 
-## 3. Testes manuais da tela principal
+### Teste 02 — Executar build completo
 
-### CT-001 — Abertura do app
+**Objetivo:** validar a compilação geral do projeto.
 
-**Passos:**
+**Comando:**
 
-1. Abrir o app no emulador ou dispositivo.
-2. Observar a tela principal.
+```bash
+./gradlew build
+```
 
 **Resultado esperado:**
 
-- título exibido;
-- imagem do robô exibida;
-- seletor de tipo de robô exibido;
-- campo de mensagem exibido;
-- botão de envio exibido.
+```text
+BUILD SUCCESSFUL
+```
 
 ---
 
-### CT-002 — Seleção do tipo de robô
+## 3. Testes da tela principal
+
+### Teste 03 — Abertura do aplicativo
+
+**Passos:**
+
+1. Executar o app no Android Studio.
+2. Aguardar a abertura da tela principal.
+
+**Resultado esperado:**
+
+A tela principal deve apresentar:
+
+- título;
+- imagem do robô;
+- seletor de tipo de robô;
+- campo de mensagem;
+- botão de envio.
+
+---
+
+### Teste 04 — Seleção dos tipos de robô
 
 **Passos:**
 
@@ -56,7 +86,7 @@ BUILD SUCCESSFUL
 
 **Resultado esperado:**
 
-As opções abaixo devem aparecer:
+As opções devem ser:
 
 ```text
 Robô Básico
@@ -66,7 +96,7 @@ Robô Premium
 
 ---
 
-## 4. Testes manuais do Robô Básico
+## 4. Testes do Robô Básico
 
 Selecionar:
 
@@ -74,7 +104,9 @@ Selecionar:
 Robô Básico
 ```
 
-### CT-003 — Mensagem vazia
+---
+
+### Teste 05 — Mensagem vazia
 
 **Entrada:**
 
@@ -90,11 +122,28 @@ Não me incomode
 
 ---
 
-### CT-004 — Mensagem com espaços
+### Teste 06 — Mensagem com espaços
 
 **Entrada:**
 
 ```text
+     
+```
+
+**Resultado esperado:**
+
+```text
+Não me incomode
+```
+
+---
+
+### Teste 07 — Mensagem com quebra de linha
+
+**Entrada:**
+
+```text
+
 
 ```
 
@@ -106,24 +155,7 @@ Não me incomode
 
 ---
 
-### CT-005 — Mensagem com quebra de linha
-
-**Entrada:**
-
-```text
-
-
-```
-
-**Resultado esperado:**
-
-```text
-Não me incomode
-```
-
----
-
-### CT-006 — Pergunta
+### Teste 08 — Pergunta simples
 
 **Entrada:**
 
@@ -139,7 +171,7 @@ Certamente
 
 ---
 
-### CT-007 — Grito
+### Teste 09 — Grito
 
 **Entrada:**
 
@@ -155,7 +187,7 @@ Opa! Calma aí!
 
 ---
 
-### CT-008 — Palavra “eu” sem grito
+### Teste 10 — Palavra “eu” sem grito
 
 **Entrada:**
 
@@ -171,7 +203,7 @@ A responsabilidade é sua
 
 ---
 
-### CT-009 — Pergunta e grito
+### Teste 11 — Pergunta com grito
 
 **Entrada:**
 
@@ -187,7 +219,7 @@ Relaxa, eu sei o que estou fazendo!
 
 ---
 
-### CT-010 — Mensagem comum
+### Teste 12 — Mensagem comum
 
 **Entrada:**
 
@@ -203,7 +235,7 @@ Tudo bem, como quiser
 
 ---
 
-## 5. Testes manuais do Robô Avançado
+## 5. Testes do Robô Avançado
 
 Selecionar:
 
@@ -211,7 +243,9 @@ Selecionar:
 Robô Avançado
 ```
 
-### CT-011 — Soma
+---
+
+### Teste 13 — Soma
 
 **Entrada:**
 
@@ -227,7 +261,7 @@ Essa eu sei: 5
 
 ---
 
-### CT-012 — Subtração
+### Teste 14 — Subtração
 
 **Entrada:**
 
@@ -243,7 +277,7 @@ Essa eu sei: 6
 
 ---
 
-### CT-013 — Multiplicação
+### Teste 15 — Multiplicação
 
 **Entrada:**
 
@@ -259,7 +293,7 @@ Essa eu sei: 15
 
 ---
 
-### CT-014 — Divisão
+### Teste 16 — Divisão
 
 **Entrada:**
 
@@ -275,7 +309,7 @@ Essa eu sei: 5
 
 ---
 
-### CT-015 — Divisão por zero
+### Teste 17 — Divisão por zero
 
 **Entrada:**
 
@@ -291,7 +325,7 @@ Erro: não é possível dividir por zero
 
 ---
 
-### CT-016 — Números com vírgula
+### Teste 18 — Soma com vírgula decimal
 
 **Entrada:**
 
@@ -307,7 +341,7 @@ Essa eu sei: 6
 
 ---
 
-### CT-017 — Herança do comportamento básico
+### Teste 19 — Herança do comportamento básico
 
 **Entrada:**
 
@@ -323,7 +357,7 @@ Certamente
 
 ---
 
-## 6. Testes manuais do Robô Premium
+## 6. Testes do Robô Premium
 
 Selecionar:
 
@@ -331,7 +365,9 @@ Selecionar:
 Robô Premium
 ```
 
-### CT-018 — Comando agir
+---
+
+### Teste 20 — Comando agir
 
 **Entrada:**
 
@@ -347,26 +383,26 @@ A resposta deve conter:
 É pra já!
 ```
 
-e uma frase sobre tecnologia.
+seguido de uma frase sobre tecnologia.
 
 ---
 
-### CT-019 — Frases aleatórias
+### Teste 21 — Variação de frases aleatórias
 
 **Passos:**
 
-1. Enviar o comando `agir`.
+1. Enviar `agir`.
 2. Voltar para a tela principal.
-3. Enviar novamente o comando `agir`.
+3. Enviar `agir` novamente.
 4. Repetir algumas vezes.
 
 **Resultado esperado:**
 
-A frase após `É pra já!` pode variar entre as opções cadastradas na classe `MarcianoPremium`.
+A frase exibida após `É pra já!` pode variar entre as frases cadastradas.
 
 ---
 
-### CT-020 — AGIR em maiúsculo
+### Teste 22 — AGIR em maiúsculas
 
 **Entrada:**
 
@@ -380,11 +416,9 @@ AGIR
 Opa! Calma aí!
 ```
 
-Justificativa: o comando premium é `agir` em minúsculo. `AGIR` é interpretado como grito.
-
 ---
 
-### CT-021 — Operação herdada do avançado
+### Teste 23 — Operação matemática herdada
 
 **Entrada:**
 
@@ -400,9 +434,25 @@ Essa eu sei: 5
 
 ---
 
+### Teste 24 — Pergunta herdada do Robô Básico
+
+**Entrada:**
+
+```text
+Tudo bem?
+```
+
+**Resultado esperado:**
+
+```text
+Certamente
+```
+
+---
+
 ## 7. Testes de navegação
 
-### CT-022 — Voltar pelo botão do app
+### Teste 25 — Retorno pelo botão do app
 
 **Passos:**
 
@@ -411,13 +461,13 @@ Essa eu sei: 5
 
 **Resultado esperado:**
 
-- app retorna para a tela principal;
-- campo de mensagem aparece vazio;
-- scroll volta para o topo.
+- o app retorna para a tela principal;
+- o campo de mensagem aparece vazio;
+- a tela volta ao topo.
 
 ---
 
-### CT-023 — Voltar pelo botão do Android
+### Teste 26 — Retorno pelo botão do Android
 
 **Passos:**
 
@@ -426,15 +476,15 @@ Essa eu sei: 5
 
 **Resultado esperado:**
 
-- app retorna para a tela principal;
-- campo de mensagem aparece vazio;
-- scroll volta para o topo.
+- o app retorna para a tela principal;
+- o campo de mensagem aparece vazio;
+- a tela volta ao topo.
 
 ---
 
 ## 8. Testes visuais
 
-### CT-024 — Identidade visual
+### Teste 27 — Imagem do robô
 
 **Passos:**
 
@@ -444,21 +494,59 @@ Essa eu sei: 5
 
 **Resultado esperado:**
 
-- imagem vetorial do robô aparece nas duas telas;
-- botões possuem fundo azul e texto branco;
-- campo de mensagem possui fundo branco e borda azul;
-- cartões de mensagem e resposta aparecem com cantos arredondados.
+A imagem vetorial do robô deve aparecer nas duas telas.
+
+---
+
+### Teste 28 — Botões
+
+**Passos:**
+
+1. Observar o botão **Enviar mensagem**.
+2. Enviar uma mensagem.
+3. Observar o botão **Voltar**.
+
+**Resultado esperado:**
+
+Os botões devem aparecer com fundo azul, texto branco e cantos arredondados.
+
+---
+
+### Teste 29 — Campo de mensagem
+
+**Passos:**
+
+1. Observar o campo de mensagem na tela principal.
+
+**Resultado esperado:**
+
+O campo deve possuir fundo branco, borda azul e área suficiente para digitação.
+
+---
+
+### Teste 30 — Cartões da tela de resposta
+
+**Passos:**
+
+1. Enviar uma mensagem.
+2. Observar a mensagem enviada.
+3. Observar a resposta do robô.
+
+**Resultado esperado:**
+
+A mensagem e a resposta devem aparecer em áreas separadas com aparência de cartão.
 
 ---
 
 ## 9. Critério de aceite
 
-O app é considerado aprovado quando:
+O aplicativo é considerado aprovado quando:
 
 - o build passa;
 - os testes unitários passam;
 - a tela principal abre corretamente;
-- a tela de resposta abre corretamente;
-- as regras do robô são respeitadas;
-- o retorno para nova pergunta funciona;
-- o campo de mensagem é limpo ao retornar.
+- a tela de resposta exibe a mensagem e a resposta;
+- as regras de negócio são respeitadas;
+- o retorno para nova interação funciona;
+- o campo de mensagem é limpo ao retornar;
+- a identidade visual permanece consistente.

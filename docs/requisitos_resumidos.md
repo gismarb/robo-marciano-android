@@ -1,208 +1,362 @@
 # Requisitos Resumidos — Robô Marciano Android
 
-Data: 20/06/2026
+## 1. Identificação do projeto
+
+**Projeto:** Robô Marciano Android  
+**Repositório:** `robo-marciano-android`  
+**Projeto base anterior:** [Robô Marciano Kotlin](https://github.com/gismarb/robo-marciano-kotlin)  
+**Tipo de aplicação:** Aplicativo Android  
+**Linguagem principal:** Kotlin  
+**Interface:** Android Views/XML  
+**Objetivo:** criar uma interface mobile para interação com o Robô Marciano, adaptando a regra de negócio do projeto Kotlin original para uma aplicação Android.
 
 ---
 
-## 1. Objetivo
+## 2. Escopo geral
 
-Desenvolver um aplicativo Android que funcione como interface gráfica para o Robô Marciano, reaproveitando e adaptando a lógica do projeto anterior em Kotlin para terminal.
+O aplicativo deve permitir que o usuário selecione um tipo de robô, informe uma mensagem e visualize a resposta calculada pela regra de negócio do Robô Marciano.
 
-O aplicativo deve permitir que o usuário envie mensagens ao robô e visualize a resposta em uma tela própria.
-
----
-
-## 2. Escopo obrigatório
-
-### 2.1 Tela principal
-
-A tela principal deve conter:
-
-- campo para entrada da mensagem;
-- botão para envio da mensagem ao robô;
-- seleção do tipo de robô.
-
-No projeto, essa tela foi implementada na classe:
-
-```text
-MainActivity.kt
-```
-
-Layout correspondente:
-
-```text
-activity_main.xml
-```
+A aplicação Android substitui a interação via terminal do projeto Kotlin original por uma experiência visual com telas, botões, campos de entrada e navegação entre Activities.
 
 ---
 
-### 2.2 Tela de resposta
+## 3. Requisitos funcionais
 
-A tela de resposta deve:
+### RF001 — Tela principal
 
-- receber a mensagem enviada;
-- receber o tipo de robô selecionado;
-- processar a mensagem usando a regra de negócio;
-- exibir a resposta do robô;
-- permitir retorno à tela principal.
+O sistema deve possuir uma tela principal para entrada da mensagem do usuário.
 
-No projeto, essa tela foi implementada na classe:
+#### RF001.1 — Exibição do título
+
+A tela principal deve exibir o título do aplicativo.
+
+#### RF001.2 — Exibição da imagem do robô
+
+A tela principal deve exibir uma representação visual do Robô Marciano.
+
+#### RF001.3 — Campo de mensagem
+
+A tela principal deve conter um campo para digitação da mensagem do usuário.
+
+#### RF001.4 — Botão de envio
+
+A tela principal deve conter um botão para enviar a mensagem ao robô.
+
+---
+
+### RF002 — Seleção do tipo de robô
+
+O sistema deve permitir que o usuário selecione o tipo de robô que responderá à mensagem.
+
+#### RF002.1 — Robô Básico
+
+O sistema deve permitir a seleção do Robô Básico.
+
+#### RF002.2 — Robô Avançado
+
+O sistema deve permitir a seleção do Robô Avançado.
+
+#### RF002.3 — Robô Premium
+
+O sistema deve permitir a seleção do Robô Premium.
+
+---
+
+### RF003 — Tela de resposta
+
+O sistema deve possuir uma tela de resposta para apresentar o resultado da interação com o robô.
+
+#### RF003.1 — Exibição do tipo de robô
+
+A tela de resposta deve exibir o tipo de robô selecionado.
+
+#### RF003.2 — Exibição da mensagem enviada
+
+A tela de resposta deve exibir a mensagem informada pelo usuário.
+
+#### RF003.3 — Exibição da resposta
+
+A tela de resposta deve exibir a resposta calculada pela regra de negócio do robô.
+
+#### RF003.4 — Botão de retorno
+
+A tela de resposta deve possuir um botão para retornar à tela principal.
+
+---
+
+### RF004 — Retorno para nova interação
+
+O sistema deve permitir que o usuário volte para a tela principal e envie uma nova mensagem.
+
+#### RF004.1 — Retorno pelo botão do app
+
+O usuário deve conseguir retornar usando o botão **Voltar** da tela de resposta.
+
+#### RF004.2 — Retorno pelo botão do Android
+
+O usuário deve conseguir retornar usando o botão voltar do próprio Android.
+
+#### RF004.3 — Limpeza do campo de mensagem
+
+Ao retornar para a tela principal, o campo de mensagem deve estar limpo.
+
+#### RF004.4 — Reposicionamento da tela
+
+Ao retornar para a tela principal, o conteúdo deve voltar ao topo da tela.
+
+---
+
+### RF005 — Regras do Robô Básico
+
+O sistema deve implementar as regras de resposta do Robô Básico.
+
+#### RF005.1 — Mensagem vazia
+
+Quando a mensagem estiver vazia ou possuir apenas espaços/quebras de linha, o robô deve responder:
 
 ```text
-AnswerActivity.kt
+Não me incomode
 ```
 
-Layout correspondente:
+#### RF005.2 — Pergunta
+
+Quando a mensagem for uma pergunta, o robô deve responder:
 
 ```text
-activity_answer.xml
+Certamente
+```
+
+#### RF005.3 — Grito
+
+Quando a mensagem possuir palavra em maiúsculas caracterizando grito, o robô deve responder:
+
+```text
+Opa! Calma aí!
+```
+
+#### RF005.4 — Pergunta e grito
+
+Quando a mensagem for simultaneamente pergunta e grito, o robô deve responder:
+
+```text
+Relaxa, eu sei o que estou fazendo!
+```
+
+#### RF005.5 — Palavra “eu”
+
+Quando a mensagem contiver a palavra “eu” e não cair em uma regra de maior precedência, o robô deve responder:
+
+```text
+A responsabilidade é sua
+```
+
+#### RF005.6 — Mensagem comum
+
+Quando a mensagem não se enquadrar nas regras anteriores, o robô deve responder:
+
+```text
+Tudo bem, como quiser
 ```
 
 ---
 
-### 2.3 Retorno para nova pergunta
+### RF006 — Regras do Robô Avançado
 
-Ao retornar da tela de resposta para a tela principal:
+O sistema deve implementar o Robô Avançado como uma evolução do Robô Básico.
 
-- o campo de mensagem deve estar limpo;
-- o usuário deve conseguir digitar uma nova mensagem;
-- o retorno deve funcionar pelo botão do app e pelo botão voltar do Android.
+#### RF006.1 — Herança das regras básicas
 
-Essa regra foi implementada no método `onResume()` da `MainActivity`.
+O Robô Avançado deve manter as regras do Robô Básico.
 
----
+#### RF006.2 — Soma
 
-## 3. Tipos de robô
-
-O aplicativo trabalha com três tipos de robô:
+O Robô Avançado deve responder ao comando:
 
 ```text
-Robô Básico
-Robô Avançado
-Robô Premium
+some número1 número2
 ```
 
-A representação técnica desses tipos está em:
+#### RF006.3 — Subtração
+
+O Robô Avançado deve responder ao comando:
 
 ```text
-domain/model/TipoRobo.kt
+subtraia número1 número2
 ```
 
----
+#### RF006.4 — Multiplicação
 
-## 4. Regras do Robô Básico
-
-Classe:
+O Robô Avançado deve responder ao comando:
 
 ```text
-domain/robot/Marciano.kt
+multiplique número1 número2
 ```
 
-Regras:
+#### RF006.5 — Divisão
 
-| Situação | Resposta |
-|---|---|
-| mensagem vazia, espaços ou quebras de linha | Não me incomode |
-| pergunta + grito | Relaxa, eu sei o que estou fazendo! |
-| grito | Opa! Calma aí! |
-| pergunta | Certamente |
-| contém a palavra “eu” | A responsabilidade é sua |
-| demais mensagens | Tudo bem, como quiser |
-
----
-
-## 5. Regras do Robô Avançado
-
-Classe:
+O Robô Avançado deve responder ao comando:
 
 ```text
-domain/robot/MarcianoAvancado.kt
+divida número1 número2
 ```
 
-O Robô Avançado herda as regras do Robô Básico e adiciona operações matemáticas.
+#### RF006.6 — Divisão por zero
 
-Comandos suportados:
-
-| Comando | Exemplo |
-|---|---|
-| some | `some 2 3` |
-| subtraia | `subtraia 10 4` |
-| multiplique | `multiplique 3 5` |
-| divida | `divida 10 2` |
-
-Tratamento especial:
-
-```text
-divida 10 0
-```
-
-Resposta:
+Quando o segundo número da divisão for zero, o robô deve responder:
 
 ```text
 Erro: não é possível dividir por zero
 ```
 
+#### RF006.7 — Números com vírgula
+
+O Robô Avançado deve aceitar números decimais informados com vírgula.
+
 ---
 
-## 6. Regras do Robô Premium
+### RF007 — Regras do Robô Premium
 
-Classe:
+O sistema deve implementar o Robô Premium como uma evolução do Robô Avançado.
 
-```text
-domain/robot/MarcianoPremium.kt
-```
+#### RF007.1 — Herança das regras avançadas
 
-O Robô Premium herda as regras do Robô Avançado e adiciona o comando:
+O Robô Premium deve manter as regras do Robô Avançado.
+
+#### RF007.2 — Comando agir
+
+O Robô Premium deve responder ao comando:
 
 ```text
 agir
 ```
 
-A resposta contém:
+#### RF007.3 — Frase aleatória
+
+Após o comando `agir`, o Robô Premium deve exibir uma frase aleatória sobre tecnologia.
+
+#### RF007.4 — Comando agir em maiúsculas
+
+O comando `AGIR`, em maiúsculas, deve ser tratado como grito, não como comando premium.
+
+---
+
+### RF008 — Testes unitários
+
+O sistema deve possuir testes unitários para validar a regra de negócio do robô.
+
+#### RF008.1 — Testes do Robô Básico
+
+Devem existir testes para validar as regras básicas.
+
+#### RF008.2 — Testes do Robô Avançado
+
+Devem existir testes para validar as operações matemáticas e a herança das regras básicas.
+
+#### RF008.3 — Testes do Robô Premium
+
+Devem existir testes para validar o comando `agir`, as frases aleatórias e a herança das regras avançadas.
+
+---
+
+## 4. Requisitos não funcionais
+
+### RNF001 — Linguagem de programação
+
+O aplicativo deve ser desenvolvido em Kotlin.
+
+### RNF002 — Ambiente de desenvolvimento
+
+O projeto deve ser desenvolvido e executado no Android Studio.
+
+### RNF003 — Interface Android
+
+A interface deve ser construída com Android Views/XML.
+
+### RNF004 — ViewBinding
+
+O projeto deve utilizar ViewBinding para acessar os componentes das telas.
+
+### RNF005 — Separação de responsabilidades
+
+A regra de negócio do robô deve ficar separada da camada de interface Android.
+
+### RNF006 — Organização por pacotes
+
+O código deve ser organizado em pacotes, separando interface, modelo, regra de negócio e utilitários.
+
+### RNF007 — Recursos Android
+
+Textos visíveis de interface devem estar centralizados em `strings.xml`.
+
+### RNF008 — Cores
+
+Cores da interface devem estar centralizadas em `colors.xml`.
+
+### RNF009 — Identidade visual
+
+O aplicativo deve possuir uma identidade visual simples, com imagem vetorial do robô e botões personalizados.
+
+### RNF010 — Versionamento
+
+O projeto deve ser versionado com Git e publicado no GitHub.
+
+### RNF011 — Documentação
+
+O projeto deve possuir README e documentação complementar na pasta `docs`.
+
+---
+
+## 5. Regras de negócio
+
+### RN001 — Precedência das respostas
+
+As regras do Robô Básico devem respeitar a seguinte precedência:
 
 ```text
-É pra já!
+1. mensagem vazia
+2. pergunta + grito
+3. grito
+4. pergunta
+5. palavra “eu”
+6. resposta padrão
 ```
 
-seguido de uma frase aleatória sobre tecnologia.
+### RN002 — Mensagem vazia
+
+A mensagem vazia deve ser tratada pela regra de negócio, e não bloqueada pela interface.
+
+### RN003 — Independência da camada de domínio
+
+As respostas do robô devem permanecer na camada de domínio, sem dependência direta de `Context` ou `strings.xml`.
+
+### RN004 — Comandos matemáticos
+
+Os comandos matemáticos devem possuir exatamente três partes:
+
+```text
+operação número1 número2
+```
+
+### RN005 — Formatação de resultados inteiros
+
+Quando o resultado matemático for inteiro, ele deve ser exibido sem casas decimais.
+
+### RN006 — Comando premium
+
+O comando premium deve ser reconhecido apenas quando a mensagem for exatamente:
+
+```text
+agir
+```
 
 ---
 
-## 7. Requisitos técnicos implementados
+## 6. Itens extras planejados
 
-- Kotlin como linguagem principal;
-- Android Views/XML para construção das telas;
-- ViewBinding para acesso aos componentes de tela;
-- duas Activities principais;
-- pacote `domain` para separar regra de negócio da interface;
-- imagem do robô criada como Vector Drawable XML;
-- cores e textos centralizados em arquivos de recursos;
-- testes unitários com JUnit.
+Os itens abaixo podem ser implementados como evolução do projeto:
 
----
-
-## 8. Requisitos atendidos
-
-| Requisito | Status |
-|---|---|
-| App Android funcional | Atendido |
-| Tela principal com entrada de mensagem | Atendido |
-| Botão para envio da mensagem | Atendido |
-| Tela de resposta | Atendido |
-| Exibição da resposta do robô | Atendido |
-| Retorno para tela principal | Atendido |
-| Campo limpo ao retornar | Atendido |
-| Uso de Kotlin | Atendido |
-| Adaptação do robô anterior | Atendido |
-
----
-
-## 9. Itens extras planejados
-
-Os itens abaixo não fazem parte do MVP já concluído, mas podem ser implementados como evolução:
-
-- tela intermediária para operações matemáticas;
 - histórico de comandos;
 - reenvio de mensagens a partir do histórico;
-- melhoria da experiência visual em formato de chat;
-- persistência local do histórico.
+- tela específica para operações matemáticas;
+- persistência local do histórico;
+- melhoria da experiência visual em formato de conversa.
